@@ -7,6 +7,10 @@
     <string name="entry_date_label">The Entry Date</string>
     <string name="reminder_date_label">The Reminder Date</string>
     <string name="is_done_box">Is Done</string>
+    <string name="add_task">Add Task</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="save_btn">Save</string>
+
 
 
 

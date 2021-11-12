@@ -1,56 +1,100 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_item_to_do"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5sp"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:layout_margin="3sp"
+    android:background="#E1E8EB">
 
     <TextView
         android:id="@+id/to_do_title_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF8F00"
-        android:gravity="left"
+        android:layout_width="306dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/candal"
+        android:gravity="top|left"
         android:text="To Do Title"
-        android:textColor="#0C0C0C"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#343A40"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/description_title_list"
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F9A825"
-        android:gravity="left"
-        android:text="The Description"
-        android:textColor="#100D0D"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/candal"
+        android:gravity="center"
+        android:text="@string/entry_date_label"
+        android:textColor="#105652"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/candal"
+        android:gravity="center"
+        android:text="@string/reminder_date_label"
+        android:textColor="#B91646"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/entry_date_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#283593"
-        android:gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="63dp"
+        android:fontFamily="@font/candal"
+        android:gravity="center"
         android:text="Entry Date"
-        android:textSize="10sp"
-        android:textStyle="bold" />
+        android:textColor="#105652"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/reminder_date_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="63dp"
+        android:fontFamily="@font/candal"
+        android:gravity="center"
         android:text="Reminder Date"
-        android:textSize="10sp"
-        android:textStyle="bold" />
+        android:textColor="#B91646"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/is_done_list"
-        android:layout_width="30sp"
-        android:layout_height="20sp"
-        android:textSize="12sp" />
+    <ImageView
+        android:id="@+id/is_done"
+        android:layout_width="153dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/isdone"
+        tools:ignore="ImageContrastCheck" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

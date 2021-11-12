@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,67 +11,101 @@
         android:id="@+id/to_do_title_label"
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
+        android:layout_margin="3sp"
+        android:fontFamily="@font/candal"
         android:text="@string/to_do_title_label"
-        android:textSize="16sp"
-        android:textStyle="bold|italic" />
+        android:textColor="#343A40"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/to_do_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+        android:backgroundTint="#E1E8EB"
+        android:fontFamily="@font/candal"
         android:hint="@string/to_do_hint"
-        android:textSize="14sp" />
+        android:textColor="#343A40"
+        android:textSize="14sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/description_title_label"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3sp"
+        android:fontFamily="@font/candal"
         android:text="@string/description_title_label"
-        android:textSize="16sp"
-        android:textStyle="bold|italic" />
+        android:textColor="#FFC107"
+        android:textSize="16sp" />
 
 
     <EditText
         android:id="@+id/description_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+        android:backgroundTint="#E1E8EB"
+        android:fontFamily="@font/candal"
         android:hint="@string/description_hint"
-        android:textSize="14sp" />
+        android:textColor="#343A40"
+        android:textSize="14sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/the_entry_date_label"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3sp"
+        android:fontFamily="@font/candal"
         android:text="@string/entry_date_label"
-        android:textSize="16sp"
-        android:textStyle="bold|italic" />
+        android:textColor="#105652"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/entry_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="sut Nov 6 05:16 EST 2021" />
+        android:backgroundTint="#105652"
+        android:fontFamily="@font/candal"
+        android:textSize="12sp"
+        tools:text="sut Nov 6 2021" />
 
     <TextView
         android:id="@+id/the_reminder_date_label"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3sp"
+        android:fontFamily="@font/candal"
         android:text="@string/reminder_date_label"
-        android:textSize="16sp"
-        android:textStyle="bold|italic" />
+        android:textColor="#B91646"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/reminder_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="sut Nov 6 05:16 EST 2021" />
+        android:backgroundTint="#B91646"
+        android:fontFamily="@font/candal"
+        android:textSize="12sp"
+        tools:text="sut Nov 6 2021" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F78812"
+        android:fontFamily="@font/candal"
+        android:text="Save" />
 
     <CheckBox
         android:id="@+id/is_done_box"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Is Done" />
+        android:layout_height="37dp"
+        android:fontFamily="@font/candal"
+        android:text="Is Done"
+        android:textColor="#343A40" />
 
 
 </LinearLayout>

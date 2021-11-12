@@ -1,34 +1,28 @@
 package com.example.todolist
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.CheckBox
+import android.view.*
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 private const val TAG = "ToDoListFragment"
+const val EXTRA_ID = "ARG"
 
 class ToDoListFragment : Fragment() {
-    private lateinit var toDoRecyclerView:RecyclerView
-    private var adapter:ToDoAdapter? = null
-    private val toDoListViewModel: ToDoListViewModel by lazy {
-        ViewModelProvider(this).get(ToDoListViewModel::class.java)
+    private lateinit var toDoRecyclerView: RecyclerView
+    private val toDoListViewModel: ToDoViewModel by lazy {
+        ViewModelProvider(this).get(ToDoViewModel::class.java)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d(TAG, "Total to do list: ${toDoListViewModel.toDos.size}")
-    }
-    companion object {
-        fun newInstance(): ToDoListFragment {
-            return ToDoListFragment()
-        }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.list_item_to_do, menu)
     }
 
     override fun onCreateView(
@@ -36,26 +30,85 @@ class ToDoListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view= inflater.inflate(R.layout.fragment_list_to_do,
-        container,
-        false)
+        val view = inflater.inflate(
+            R.layout.fragment_list_to_do,
+            container,
+            false
+        )
         toDoRecyclerView = view.findViewById(R.id.to_do_recycler_view) as RecyclerView
-        toDoRecyclerView.layoutManager=LinearLayoutManager(context)
-        updateUI()
+        toDoRecyclerView.layoutManager = LinearLayoutManager(context)
         return view
     }
-    private fun updateUI(){
-        val toDos = toDoListViewModel.toDos
-        adapter = ToDoAdapter(toDos)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        toDoListViewModel.LiveDataTasks.observe(
+            viewLifecycleOwner,
+            Observer { tasks ->
+                tasks?.let {
+                    updateUI(tasks)
+                }
+            }
+        )
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.add_task -> {
+                val taskFragment = TaskFragment()
+                activity?.let {
+                    it.supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, taskFragment).addToBackStack("").commit()
+                }
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun updateUI(toDos: List<ToDo>) {
+        val adapter = ToDoAdapter(toDos)
         toDoRecyclerView.adapter = adapter
     }
 
-    private inner class ToDoHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private inner class ToDoHolder(view: View) : RecyclerView.ViewHolder(view),
+        View.OnClickListener {
+        private lateinit var task: ToDo
+        private val isDoneImageView: ImageView = itemView.findViewById(R.id.is_done)
         val toDoTitleList: TextView = itemView.findViewById(R.id.to_do_title_list)
-        val descriptionTitle: TextView = itemView.findViewById(R.id.description_title_list)
         val entryDateList: TextView = itemView.findViewById(R.id.entry_date_list)
         val reminderDateList: TextView = itemView.findViewById(R.id.reminder_date_list)
-        //val isDoneList:CheckBox = itemView.findViewById(R.id.is_done_box)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        fun bind(toDo: ToDo) {
+            this.task = toDo
+            val date = Date()
+            toDoTitleList.text = this.task.titleToDo
+            entryDateList.text = this.task.entryDate.toString()
+            reminderDateList.text = this.task.reminderDate.toString()
+             if (toDo.isDone) {
+                 isDoneImageView.setImageResource(R.drawable.isdone)
+            } else if (date.before(toDo.reminderDate)) {
+                 isDoneImageView.setImageResource(R.drawable.background)
+            }else{
+                 isDoneImageView.setImageResource(R.drawable.not_done)
+             }
+        }
+
+        override fun onClick(view: View?) {
+            val args = Bundle()
+            args.putSerializable(EXTRA_ID, task.id)
+            val taskFragment = TaskFragment()
+            taskFragment.arguments = args
+            activity?.let {
+                it.supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, taskFragment)
+                    .addToBackStack("")
+                    .commit()
+            }
+        }
     }
 
     private inner class ToDoAdapter(var toDos: List<ToDo>) : RecyclerView.Adapter<ToDoHolder>() {
@@ -66,16 +119,16 @@ class ToDoListFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ToDoHolder, position: Int) {
             val toDo = toDos[position]
-            holder.apply {
-                toDoTitleList.text = toDo.titleToDo
-                descriptionTitle.text = toDo.description
-                entryDateList.text = toDo.entryDate.toString()
-                reminderDateList.text = toDo.reminderDate.toString()
-            }
+            holder.bind(toDo)
         }
 
         override fun getItemCount() = toDos.size
 
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 }
 
