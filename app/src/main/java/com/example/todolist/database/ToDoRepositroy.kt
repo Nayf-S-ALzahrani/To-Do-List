@@ -36,6 +36,19 @@ class TaskRepository private constructor(context: Context) {
     fun deleteTasks(task: ToDo) {
         executor.execute { toDoDao.deleteTasks(task) }
     }
+    fun orderByReminderDate(): LiveData<List<ToDo>>{
+        return toDoDao.orderByReminderDate()
+    }
+
+    fun filterByDone(): LiveData<List<ToDo>>{
+        return  toDoDao.filterByDone()
+    }
+
+    fun filterByUnDone(): LiveData<List<ToDo>>{
+        return toDoDao.filterByUnDone()
+    }
+
+
 
     companion object {
         private var INSTANCE: TaskRepository? = null

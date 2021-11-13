@@ -1,6 +1,7 @@
 package com.example.todolist
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("ResourceType")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout1.activity_main)
@@ -24,5 +26,10 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.fragment_container, fragment)
                 .commit()
         }
+        statusBarColor()
+    }
+
+    private fun statusBarColor() {
+        window.statusBarColor = resources.getColor(R.color.wordColor,this.theme)
     }
 }

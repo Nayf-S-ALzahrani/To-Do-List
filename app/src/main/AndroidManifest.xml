@@ -12,6 +12,7 @@
         android:theme="@style/Theme.ToDoList">
         <activity
             android:name=".MainActivity"
+            android:label="To Do List"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

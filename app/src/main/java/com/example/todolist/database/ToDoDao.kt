@@ -21,4 +21,13 @@ interface ToDoDao {
 
     @Delete
     fun deleteTasks(task: ToDo)
+
+    @Query("SELECT * FROM todo order by reminderDate")
+    fun orderByReminderDate(): LiveData<List<ToDo>>
+
+    @Query("SELECT * FROM todo WHERE isDone = 1")
+    fun filterByDone(): LiveData<List<ToDo>>
+
+    @Query("SELECT * FROM todo WHERE isDone = 0")
+    fun filterByUnDone(): LiveData<List<ToDo>>
 }

@@ -1,7 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/add_task"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/add_task"
-        app:showAsAction="ifRoom|withText"/>
+        android:title="@string/add_task" />
+    <item
+        android:id="@+id/sort"
+        android:title="@string/sort_by_date" />
+    <item
+        android:id="@+id/filter"
+        android:title="Filtering By Done" />
+    <item
+        android:id="@+id/filter_undone"
+        android:title="Filtering By Undone" />
 </menu>

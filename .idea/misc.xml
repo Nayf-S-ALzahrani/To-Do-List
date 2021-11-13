@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14479166666666668" />
+        <entry key="app/src/main/res/drawable/background.xml" value="0.2671875" />
+        <entry key="app/src/main/res/drawable/backlayout.xml" value="0.2671875" />
         <entry key="app/src/main/res/drawable/done_or_expired.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_asset_2.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_baseline_not_started_24.xml" value="0.3260416666666667" />
@@ -12,9 +14,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_list_to_do.xml" value="0.15113380328754347" />
         <entry key="app/src/main/res/layout/fragment_to_do.xml" value="0.2806603773584906" />
-        <entry key="app/src/main/res/layout/list_item_to_do.xml" value="0.462478184991274" />
+        <entry key="app/src/main/res/layout/list_item_to_do.xml" value="0.335" />
         <entry key="app/src/main/res/menu/fragment_to_do.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/menu/list_item_to_do.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/list_item_to_do.xml" value="0.25" />
         <entry key="app/src/main/res/menu/to_do_list_fragment.xml" value="0.375" />
       </map>
     </option>

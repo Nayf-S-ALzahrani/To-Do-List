@@ -9,10 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
 import java.util.*
 
 private const val TAG = "ToDoListFragment"
 const val EXTRA_ID = "ARG"
+const val DATE_FORMAT = "dd/MMMM/yyyy"
 
 class ToDoListFragment : Fragment() {
     private lateinit var toDoRecyclerView: RecyclerView
@@ -61,9 +63,35 @@ class ToDoListFragment : Fragment() {
                 }
                 true
             }
-            else -> return super.onOptionsItemSelected(item)
-        }
+            R.id.sort -> {
+                toDoListViewModel.orderByReminderDate().observe(
+                    viewLifecycleOwner, Observer {
+                        updateUI(it)
+                    }
+                )
+                true
+            }
+            R.id.filter -> {
+                toDoListViewModel.filterByDone().observe(
+                    viewLifecycleOwner, Observer {
+                        updateUI(it)
+
+                    }
+                )
+                true
+            }
+            R.id.filter_undone-> {
+                toDoListViewModel.filterByUnDone().observe(
+                    viewLifecycleOwner, Observer {
+                        updateUI(it)
+
+                    }
+                )
+                true
+            }
+        else -> return super.onOptionsItemSelected(item)
     }
+}
 
     private fun updateUI(toDos: List<ToDo>) {
         val adapter = ToDoAdapter(toDos)
@@ -86,9 +114,11 @@ class ToDoListFragment : Fragment() {
             this.task = toDo
             val date = Date()
             toDoTitleList.text = this.task.titleToDo
-            entryDateList.text = this.task.entryDate.toString()
-            reminderDateList.text = this.task.reminderDate.toString()
-             if (toDo.isDone) {
+            val time = SimpleDateFormat(DATE_FORMAT)
+            entryDateList.text = time.format(task.entryDate)
+            reminderDateList.text = time.format(task.reminderDate)
+
+            if (toDo.isDone) {
                  isDoneImageView.setImageResource(R.drawable.isdone)
             } else if (date.before(toDo.reminderDate)) {
                  isDoneImageView.setImageResource(R.drawable.background)

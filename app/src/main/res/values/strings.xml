@@ -10,8 +10,7 @@
     <string name="add_task">Add Task</string>
     <string name="delete_task">Delete Task</string>
     <string name="save_btn">Save</string>
-
-
+    <string name="sort_by_date">Sort By Date</string>
 
 
 </resources>
