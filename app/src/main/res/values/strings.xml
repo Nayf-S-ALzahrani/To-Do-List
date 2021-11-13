@@ -11,6 +11,11 @@
     <string name="delete_task">Delete Task</string>
     <string name="save_btn">Save</string>
     <string name="sort_by_date">Sort By Date</string>
+    <string name="sort_by_complete">Sort By Complete</string>
+    <string name="sort_by_title">Sort By Title</string>
+    <string name="filter">Filtering By Done</string>
+    <string name="filter_undone">Filtering By Undone</string>
+    <string name="sort_by_unComplete">Sort By UnComplete</string>
 
 
 </resources>

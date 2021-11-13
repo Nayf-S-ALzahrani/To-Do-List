@@ -48,7 +48,17 @@ class TaskRepository private constructor(context: Context) {
         return toDoDao.filterByUnDone()
     }
 
+    fun sortByTitle(): LiveData<List<ToDo>>{
+        return toDoDao.sortByTitle()
+    }
 
+    fun sortComplete(): LiveData<List<ToDo>>{
+        return toDoDao.sortComplete()
+    }
+
+    fun sortUnComplete(): LiveData<List<ToDo>>{
+        return toDoDao.sortUnComplete()
+    }
 
     companion object {
         private var INSTANCE: TaskRepository? = null

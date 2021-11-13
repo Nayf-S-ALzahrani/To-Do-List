@@ -6,9 +6,18 @@
         android:id="@+id/sort"
         android:title="@string/sort_by_date" />
     <item
+        android:id="@+id/sort_by_title"
+        android:title="@string/sort_by_title" />
+    <item
+        android:id="@+id/sort_by_complete"
+        android:title="@string/sort_by_complete" />
+    <item
+        android:id="@+id/sort_by_unComplete"
+        android:title="@string/sort_by_unComplete" />
+    <item
         android:id="@+id/filter"
-        android:title="Filtering By Done" />
+        android:title="@string/filter" />
     <item
         android:id="@+id/filter_undone"
-        android:title="Filtering By Undone" />
+        android:title="@string/filter_undone" />
 </menu>

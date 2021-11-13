@@ -53,6 +53,7 @@ class ToDoListFragment : Fragment() {
             }
         )
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.add_task -> {
@@ -75,23 +76,45 @@ class ToDoListFragment : Fragment() {
                 toDoListViewModel.filterByDone().observe(
                     viewLifecycleOwner, Observer {
                         updateUI(it)
-
                     }
                 )
                 true
             }
-            R.id.filter_undone-> {
+            R.id.filter_undone -> {
                 toDoListViewModel.filterByUnDone().observe(
                     viewLifecycleOwner, Observer {
                         updateUI(it)
-
                     }
                 )
                 true
             }
-        else -> return super.onOptionsItemSelected(item)
+            R.id.sort_by_title -> {
+                toDoListViewModel.sortByTitle().observe(
+                    viewLifecycleOwner, Observer {
+                        updateUI(it)
+                    }
+                )
+                true
+            }
+            R.id.sort_by_complete -> {
+                toDoListViewModel.sortComplete().observe(
+                    viewLifecycleOwner, Observer {
+                        updateUI(it)
+                    }
+                )
+                true
+            }
+            R.id.sort_by_unComplete -> {
+                toDoListViewModel.sortUnComplete().observe(
+                    viewLifecycleOwner, Observer {
+                        updateUI(it)
+                    }
+                )
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
-}
 
     private fun updateUI(toDos: List<ToDo>) {
         val adapter = ToDoAdapter(toDos)
@@ -119,12 +142,12 @@ class ToDoListFragment : Fragment() {
             reminderDateList.text = time.format(task.reminderDate)
 
             if (toDo.isDone) {
-                 isDoneImageView.setImageResource(R.drawable.isdone)
+                isDoneImageView.setImageResource(R.drawable.isdone)
             } else if (date.before(toDo.reminderDate)) {
-                 isDoneImageView.setImageResource(R.drawable.background)
-            }else{
-                 isDoneImageView.setImageResource(R.drawable.not_done)
-             }
+                isDoneImageView.setImageResource(R.drawable.background)
+            } else {
+                isDoneImageView.setImageResource(R.drawable.not_done)
+            }
         }
 
         override fun onClick(view: View?) {

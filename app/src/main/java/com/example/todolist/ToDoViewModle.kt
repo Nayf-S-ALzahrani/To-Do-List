@@ -46,7 +46,16 @@ class ToDoViewModel : ViewModel() {
         return taskRepository.filterByUnDone()
     }
 
+    fun sortByTitle(): LiveData<List<ToDo>>{
+        return taskRepository.sortByTitle()
+    }
 
+    fun sortComplete(): LiveData<List<ToDo>>{
+        return taskRepository.sortComplete()
+    }
 
+    fun sortUnComplete(): LiveData<List<ToDo>>{
+        return taskRepository.sortUnComplete()
+    }
 
 }
