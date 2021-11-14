@@ -100,7 +100,7 @@ class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback,
     override fun onStop() {
         super.onStop()
         if (toDo.titleToDo.isBlank()) {
-            Toast.makeText(context, "Enter Title", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Not Saved No Title", Toast.LENGTH_LONG).show()
         } else {
             fragmentViewModel.updateTask(toDo)
         }

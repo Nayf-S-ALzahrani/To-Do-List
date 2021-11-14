@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ToDoList</string>
-    <string name="to_do_hint">Remind you of</string>
+    <string name="to_do_hint">Remind you of (Required Field)*</string>
     <string name="to_do_title_label">To Do</string>
     <string name="description_title_label">The Description</string>
     <string name="description_hint">Reminder Description</string>
