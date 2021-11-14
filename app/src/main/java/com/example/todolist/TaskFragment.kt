@@ -1,4 +1,5 @@
 package com.example.todolist
+
 import androidx.lifecycle.Observer
 import android.os.Bundle
 import android.text.Editable
@@ -15,13 +16,14 @@ private const val ARG_TODO_ID = "toDo_id"
 private const val ARG_TASK_ID = "task_id"
 private const val TASK_DATE_KEY = "task_date"
 
-class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback, View.OnClickListener {
+class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback,
+    View.OnClickListener {
     private lateinit var toDo: ToDo
     private lateinit var titleToDo: EditText
     private lateinit var description: EditText
     private lateinit var entryDate: Button
     private lateinit var reminderDate: Button
-    private lateinit var saveBtn:Button
+    private lateinit var saveBtn: Button
     private lateinit var isDone: CheckBox
 
     private val fragmentViewModel by lazy { ViewModelProvider(this).get(ToDoViewModel::class.java) }
@@ -34,7 +36,6 @@ class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback, 
             val taskId: UUID = it.getSerializable(EXTRA_ID) as UUID
             fragmentViewModel.loadTask(taskId)
         }
-
     }
 
     override fun onCreateView(
@@ -80,7 +81,6 @@ class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback, 
         )
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.fragment_to_do, menu)
@@ -104,10 +104,9 @@ class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback, 
         } else {
             fragmentViewModel.updateTask(toDo)
         }
-
     }
 
-    private fun updateUI(){
+    private fun updateUI() {
         titleToDo.setText(toDo.titleToDo)
         description.setText(toDo.description)
         entryDate.text = toDo.entryDate.toString()
@@ -139,32 +138,32 @@ class TaskFragment : Fragment(), DatePickerDialogueFragment.DatePickerCallback, 
             }
 
             override fun afterTextChanged(s: Editable?) {
-                //i will do nothing
+                //I will do nothing
             }
         }
 
-            val descriptionWatcher = object : TextWatcher {
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
-                }
-
-                override fun onTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    before: Int,
-                    count: Int
-                ) {
-                    toDo.description = s.toString()
-                }
-
-                override fun afterTextChanged(s: Editable?) {
-                    //i will do nothing
-                }
+        val descriptionWatcher = object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
             }
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+                toDo.description = s.toString()
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                //I will do nothing
+            }
+        }
 
         titleToDo.addTextChangedListener(titleWatcher)
         description.addTextChangedListener(descriptionWatcher)

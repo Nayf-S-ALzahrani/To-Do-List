@@ -28,7 +28,7 @@
         android:hint="@string/to_do_hint"
         android:textColor="#343A40"
         android:textSize="14sp"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/description_title_label"
@@ -37,8 +37,9 @@
         android:layout_margin="3sp"
         android:fontFamily="@font/candal"
         android:text="@string/description_title_label"
-        android:textColor="#FFC107"
-        android:textSize="16sp" />
+        android:textColor="#827717"
+        android:textSize="16sp"
+        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
 
     <EditText
@@ -49,9 +50,11 @@
         android:backgroundTint="#E1E8EB"
         android:fontFamily="@font/candal"
         android:hint="@string/description_hint"
+        android:inputType="number|datetime|text"
         android:textColor="#343A40"
         android:textSize="14sp"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/the_entry_date_label"
@@ -70,6 +73,7 @@
         android:backgroundTint="#105652"
         android:fontFamily="@font/candal"
         android:textSize="12sp"
+        tools:ignore="DuplicateSpeakableTextCheck"
         tools:text="sut Nov 6 2021" />
 
     <TextView
@@ -97,15 +101,18 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#F78812"
         android:fontFamily="@font/candal"
-        android:text="Save" />
+        android:text="@string/save_btn"
+        android:textColor="#FFFFFF"
+        tools:ignore="TextContrastCheck" />
 
     <CheckBox
         android:id="@+id/is_done_box"
         android:layout_width="match_parent"
         android:layout_height="37dp"
         android:fontFamily="@font/candal"
-        android:text="Is Done"
-        android:textColor="#343A40" />
+        android:text="@string/is_done_box"
+        android:textColor="#343A40"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
 </LinearLayout>

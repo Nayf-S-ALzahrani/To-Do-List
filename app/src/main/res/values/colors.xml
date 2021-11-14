@@ -9,4 +9,7 @@
     <color name="background">#FFE1E8EB</color>
     <color name="wordColor">#FF343A40</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="is_done">#343A40</color>
+    <color name="edit_text">#E1E8EB</color>
+    <color name="description">#FFC107</color>
 </resources>

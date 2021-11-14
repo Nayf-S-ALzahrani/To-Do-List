@@ -59,8 +59,11 @@ class ToDoListFragment : Fragment() {
             R.id.add_task -> {
                 val taskFragment = TaskFragment()
                 activity?.let {
-                    it.supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, taskFragment).addToBackStack("").commit()
+                    it.supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, taskFragment)
+                        .addToBackStack("")
+                        .commit()
                 }
                 true
             }

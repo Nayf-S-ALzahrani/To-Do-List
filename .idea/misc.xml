@@ -13,10 +13,10 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.16944444444444445" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_list_to_do.xml" value="0.15113380328754347" />
-        <entry key="app/src/main/res/layout/fragment_to_do.xml" value="0.19377162629757785" />
-        <entry key="app/src/main/res/layout/list_item_to_do.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_to_do.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/list_item_to_do.xml" value="0.45" />
         <entry key="app/src/main/res/menu/fragment_to_do.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/menu/list_item_to_do.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/list_item_to_do.xml" value="0.165" />
         <entry key="app/src/main/res/menu/to_do_list_fragment.xml" value="0.375" />
       </map>
     </option>
